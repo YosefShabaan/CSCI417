@@ -1,0 +1,24 @@
+project:
+  name: stress-level-classifier
+  random_state: 42
+
+data:
+  input_path: "Stress (1).csv"
+  target_column: "Stress Label"
+  test_size: 0.2
+
+model:
+  type: "random_forest"
+  params:
+    n_estimators: 300
+    max_depth: 20
+    min_samples_split: 4
+    min_samples_leaf: 2
+
+mlflow:
+  experiment_name: "stress-level-classifier"
+  tracking_uri: "file:./mlruns"
+
+artifacts:
+  model_dir: "artifacts/model"
+  model_filename: "stress_model.joblib"
